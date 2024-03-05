@@ -1,0 +1,584 @@
+<div class="blog-slider">
+  <div class="blog-slider__wrp swiper-wrapper">
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        
+        <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759872/kuldar-kalvik-799168-unsplash.webp" alt="">
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code">26 December 2019</span>
+        <div class="blog-slider__title">Lorem Ipsum Dolor</div>
+        <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div>
+        <a href="#" class="blog-slider__button">READ MORE</a>
+      </div>
+    </div>
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759871/jason-leung-798979-unsplash.webp" alt="">
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code">26 December 2019</span>
+        <div class="blog-slider__title">Lorem Ipsum Dolor2</div>
+        <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
+        <a href="#" class="blog-slider__button">READ MORE</a>
+      </div>
+    </div>
+    
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759871/alessandro-capuzzi-799180-unsplash.webp" alt="">
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code">26 December 2019</span>
+        <div class="blog-slider__title">Lorem Ipsum Dolor</div>
+        <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
+        <a href="#" class="blog-slider__button">READ MORE</a>
+      </div>
+    </div>
+    
+  </div>
+  <div class="blog-slider__pagination"></div>
+</div>
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+* {
+  box-sizing: border-box;
+}
+body {
+background-color: #FFE53B;
+background-image: linear-gradient(147deg, #FFE53B 0%, #fd3838 74%);
+min-height: 100vh;
+font-family: 'Fira Sans', sans-serif;
+  display: flex;
+}
+
+.blog-slider {
+    width: 95%;
+  position: relative;
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+    padding: 25px;
+    border-radius: 25px;
+    height: 400px;
+  transition: all .3s;
+  
+   
+  @media screen and (max-width: 992px) {
+    max-width: 680px;
+        height: 400px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    min-height: 500px;
+    height: auto;
+    margin: 180px auto;
+  }
+  
+  
+  @media screen and (max-height: 500px) and (min-width: 992px) {
+        height: 350px;
+  }
+  
+  &__item {
+    display: flex;
+    align-items: center;
+    
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+    
+    &.swiper-slide-active {
+      .blog-slider__img {
+        img {
+          opacity: 1;
+        transition-delay: .3s;
+        }
+      }
+      .blog-slider__content {
+        > * {
+      
+        opacity: 1;
+        transform: none;
+
+      @for $i from 0 to 15 {
+        &:nth-child(#{$i + 1}) {
+          transition-delay: $i * 0.1 + 0.3s;
+        }
+      }
+
+    }
+      }
+    }
+    
+  }
+  
+  &__img {
+     // width: 40%;
+    width: 300px;
+    flex-shrink: 0;
+    height: 300px;
+    background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
+    box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2);
+    border-radius: 20px;
+    transform: translateX(-80px);
+   
+    overflow: hidden;
+    
+    &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
+      border-radius: 20px;
+    opacity: 0.8;
+}
+    
+    img {
+      width: 100%;
+    height: 100%;
+    object-fit: cover;
+      display: block;
+       opacity: 0;
+      border-radius: 20px;
+    transition: all .3s;
+    }
+    
+    
+    @media screen and (max-width: 992px) {
+      // width: 45%;
+    }
+    @media screen and (max-width: 768px) {
+    transform: translateY(-50%);
+      width: 90%;
+  }
+    @media screen and (max-width: 576px) {
+      width: 95%;
+    }
+     @media screen and (max-height: 500px) and (min-width: 992px) {
+        height: 270px;
+  }
+  }
+  
+  &__content {
+    // width: 60%;
+    padding-right: 25px;
+    @media screen and (max-width: 992px) {
+      // width: 55%;
+    }
+    @media screen and (max-width: 768px) {
+          margin-top: -80px;
+    text-align: center;
+    padding: 0 30px;
+    }
+    
+    @media screen and (max-width: 576px) {
+      padding: 0
+    }
+    > * {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: all .4s;
+      
+      
+    }
+    
+  }
+  
+  &__code {
+    color: #7b7992;
+    margin-bottom: 15px;
+    display: block;
+    font-weight: 500;
+  }
+  
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0d0925;
+    margin-bottom: 20px;
+  }
+  
+  &__text {
+    color: #4e4a67;
+    margin-bottom: 30px;
+    line-height: 1.5em;
+  }
+  
+  &__button {
+        display: inline-flex;
+    background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
+    padding: 15px 35px;
+    border-radius: 50px;
+    color: #fff;
+    box-shadow: 0px 14px 80px rgba(252, 56, 56, 0.4);
+    text-decoration: none;
+    font-weight: 500;
+        justify-content: center;
+    text-align: center;
+    letter-spacing: 1px;
+    @media screen and (max-width: 576px) {
+      width: 100%;
+    }
+    
+  }
+  .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    
+}
+  &__pagination {
+   position: absolute;
+    z-index: 21;
+    right: 20px;
+    width: 11px!important;
+    text-align: center;
+    left: auto!important;
+    top: 50%;
+    bottom: auto!important;
+    transform: translateY(-50%);
+    @media screen and (max-width: 768px) {
+     transform: translateX(-50%);
+          left: 50%!important;
+      top: 205px;
+    width: 100%!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+     &.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 8px 0;
+       @media screen and (max-width: 768px) {
+         margin: 0 5px;
+       }
+}
+    
+    .swiper-pagination-bullet {
+    width: 11px;
+    height: 11px;
+    display: block;
+    border-radius: 10px;
+    background: #062744;
+    opacity: 0.2;
+      transition: all .3s;
+      &-active {
+    opacity: 1;
+    background: #fd3838;
+    height: 30px;
+    box-shadow: 0px 0px 20px rgba(252, 56, 56, 0.3);
+        
+        @media screen and (max-width: 768px) {
+          height: 11px;
+          width: 30px;
+        }
+}
+}
+    
+  }
+  
+}
+
+
+
+
+
+
+
+
+var swiper = new Swiper('.blog-slider', {
+      spaceBetween: 30,
+      effect: 'fade',
+      loop: true,
+      mousewheel: {
+        invert: false,
+      },
+      // autoHeight: true,
+      pagination: {
+        el: '.blog-slider__pagination',
+        clickable: true,
+      }
+    });
+
+
+
+#------------------------------------------------------>
+
+
+
+  <div class="blog-card">
+    <div class="meta">
+      <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+      <ul class="details">
+        <li class="author"><a href="#">John Doe</a></li>
+        <li class="date">Aug. 24, 2015</li>
+        <li class="tags">
+          <ul>
+            <li><a href="#">Learn</a></li>
+            <li><a href="#">Code</a></li>
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">CSS</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="description">
+      <h1>Learning to Code</h1>
+      <h2>Opening a door to the future</h2>
+      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+      <p class="read-more">
+        <a href="#">Read More</a>
+      </p>
+    </div>
+  </div>
+  <div class="blog-card alt">
+    <div class="meta">
+      <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-2.jpg)"></div>
+      <ul class="details">
+        <li class="author"><a href="#">Jane Doe</a></li>
+        <li class="date">July. 15, 2015</li>
+        <li class="tags">
+          <ul>
+            <li><a href="#">Learn</a></li>
+            <li><a href="#">Code</a></li>
+            <li><a href="#">JavaScript</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="description">
+      <h1>Mastering the Language</h1>
+      <h2>Java is not the same as JavaScript</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+      <p class="read-more">
+        <a href="#">Read More</a>
+      </p>
+    </div>
+  </div>
+
+
+
+
+
+
+/*PEN STYLES*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #f1f1f1;
+  margin: 2rem;
+}
+
+$color_white: #fff;
+$color_prime: #5ad67d;
+$color_grey: #e2e2e2;
+$color_grey_dark: #a2a2a2;
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  box-shadow: 0 3px 7px -1px rgba(#000, .1);
+  margin-bottom: 1.6%;
+  background: $color_white;
+  line-height: 1.4;
+  font-family: sans-serif;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 0;
+  a {
+    color: inherit;
+    &:hover {
+      color: $color_prime;
+    }
+  }
+  &:hover {
+    .photo {
+      transform: scale(1.3) rotate(3deg);
+    }
+  }
+  .meta {
+    position: relative;
+    z-index: 0;
+    height: 200px;
+  }
+  .photo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform .2s;
+  }
+  .details,
+  .details ul {
+    margin: auto;
+    padding: 0;
+    list-style: none;
+  }
+
+  .details {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    margin: auto;
+    transition: left .2s;
+    background: rgba(#000, .6);
+    color: $color_white;
+    padding: 10px;
+    width: 100%;
+    font-size: .9rem;
+    a {
+      text-decoration: dotted underline
+    }
+    ul li {
+      display: inline-block;
+    }
+    .author:before {
+      font-family: FontAwesome;
+      margin-right: 10px;
+      content: "\f007";
+    }
+
+    .date:before {
+      font-family: FontAwesome;
+      margin-right: 10px;
+      content: "\f133";
+    }
+
+    .tags {
+      ul:before {
+        font-family: FontAwesome;
+        content: "\f02b";
+        margin-right: 10px;
+      }
+      li {
+        margin-right: 2px;
+        &:first-child {
+          margin-left: -4px;
+        }
+      }
+    }
+  }
+  .description {
+    padding: 1rem;
+    background: $color_white;
+    position: relative;
+    z-index: 1;
+    h1,
+    h2 {
+      font-family: Poppins, sans-serif;
+    }
+    h1 {
+      line-height: 1;
+      margin: 0;
+      font-size: 1.7rem;
+    }
+    h2 {
+      font-size: 1rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      color: $color_grey_dark;
+      margin-top: 5px;
+    }
+    .read-more {
+      text-align: right;
+      a {
+        color: $color_prime;
+        display: inline-block;
+        position: relative;
+        &:after {
+          content: "\f061";
+          font-family: FontAwesome;
+          margin-left: -10px;
+          opacity: 0;
+          vertical-align: middle;
+          transition: margin .3s, opacity .3s;
+        }
+
+        &:hover:after {
+          margin-left: 5px;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  p {
+    position: relative;
+    margin: 1rem 0 0;
+    &:first-of-type {
+      margin-top: 1.25rem;
+      &:before {
+        content: "";
+        position: absolute;
+        height: 5px;
+        background: $color_prime;
+        width: 35px;
+        top: -0.75rem;
+        border-radius: 3px;
+      }
+    }
+  }
+  &:hover {
+    .details {
+      left: 0%;
+    }
+  }
+
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+    max-width: 700px;
+    .meta {
+      flex-basis: 40%;
+      height: auto;
+    }
+    .description {
+      flex-basis: 60%;
+      &:before {
+        transform: skewX(-3deg);
+        content: "";
+        background: #fff;
+        width: 30px;
+        position: absolute;
+        left: -10px;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+      }
+    }
+    &.alt {
+      flex-direction: row-reverse;
+      .description {
+        &:before {
+          left: inherit;
+          right: -10px;
+          transform: skew(3deg)
+        }
+      }
+      .details {
+        padding-left: 25px;
+      }
+    }
+  }
+}
+
+
+
+
+

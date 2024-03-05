@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <center><title>Edit Project</title></center>
+    <link rel="stylesheet" href="/static/css/signup.css">
+    
+</head>
+<body>
+    
+
+
+    <div class="login-container">
+        <h1>Edit User</h1>
+        
+        <form method="POST" action="{{ url_for('edit_project', project_id=project[0]) }}">
+            <label for="project_name">Project Name:</label>
+            <input type="text" id="project_name" name="project_name" value="{{ project[1] }}" required>
+    
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required>{{ project[2] }}</textarea>
+    
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="start_date" name="start_date" value="{{ project[3] }}" required>
+    
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date" value="{{ project[4] }}" required>
+    
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" value="{{ project[5] }}" required>
+    
+            <label for="area_size">Area Size:</label>
+            <input type="text" id="area_size" name="area_size" value="{{ project[6] }}" required>
+    
+            <button type="submit">Update Project</button>
+        </form>
+    </div>
+
+    
+</body>
+</html>

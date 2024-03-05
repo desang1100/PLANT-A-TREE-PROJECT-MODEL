@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Profile</title>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/static/js/script.js"></script>
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+
+    <section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			
+            <h3 class="nav-link">HELLO ADMIN</h3>
+            <!-- LOGOUT BUTTON -->
+            <a class="status completed" href="{{ url_for('project_table') }}">Projects</a>
+			<form action="#">
+				<div class="form-input">
+					
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			
+            <a class="status completed" href="{{ url_for('logout') }}">Logout</a>
+
+			<a href="#" class="notification">
+				
+			</a>
+			<a href="#" class="profile">
+				<img src="/static/image/people.png">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+        
+        <main>
+            <div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        <h3>Users</h3>
+                        <i class='bx bx-search' ></i>
+                        <i class='bx bx-filter' ></i>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Address</th>
+                                <th>Contact</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in users %}
+                            <tr>
+                                
+                                <td>
+                                    
+                                    <img src="/static/image/people.png">    
+                                    {{ user[1] }}
+                                
+                                </td>
+                                <td>{{ user[2] }}</td>
+                                <td>{{ user[3] }}</td>
+                                <td>{{ user[4] }}</td>
+                                <td>{{ user[7] }}</td>
+                                <td>
+                                    <a class="status completed" href="{{ url_for('edit_user', user_id=user[0]) }}">Edit</a>
+                                    <a class="status completed" href="{{ url_for('delete_user', user_id=user[0]) }}">Delete</a>
+                                </td> 
+                            </tr>
+                            {% endfor %}
+ 
+                        </tbody>
+                    </table>
+                    
+                </div>
+        </main>
+    </section>
+

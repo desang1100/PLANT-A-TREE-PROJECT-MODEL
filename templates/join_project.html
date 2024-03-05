@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Join Project</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/flexbox.css">
+</head>
+<body>
+
+
+
+
+    <section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<a href="{{ url_for('user_profile') }}" class="nav-link">Home</a>
+            
+            <!-- LOGOUT BUTTON -->
+            
+			<form action="#">
+				<div class="form-input">
+					
+				</div>
+               
+			</form>
+            
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+            <!-- LOGOUT BUTTON -->
+            <!-- LOGOUT BUTTON -->
+            <a class="status completed" href="{{ url_for('logout') }}">Logout</a>
+
+			<a href="#" class="notification">
+				
+			</a>
+			<a href="#" class="profile">
+				<img src="/static/image/people.png">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+        
+
+        <main>
+            <div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        <h3>Projects</h3>
+                        
+                        <i class='bx bx-search' ></i>
+                        <i class='bx bx-filter' ></i>
+                    </div>
+
+                    <form action="{{ url_for('join_project_process') }}" method="POST">
+                        <table>
+                            <thead>
+                                <tr>
+                                   
+                                    <th>Project Name</th>
+                                    
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Location</th>
+                                    <th>Area Size</th>
+                                    <th>Action</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for project in available_projects %}
+                                <tr>
+                                    <td>
+                                        <img src="/static/image/people.png">
+                                        {{ project[1] }}
+                                    
+                                    </td>
+                                    
+                                    <td>{{ project[3] }}</td>
+                                    <td>{{ project[4] }}</td>
+                                    <td>{{ project[5] }}</td>
+                                    <td>{{ project[6] }}</td>
+
+                                    <td>
+                                        <button type="submit" name="project_id" value="{{ project[0] }}">join</button>
+                                        <a class="status completed" href="{{ url_for('fetch_user_data', project_id=project[0]) }}">View</a>
+                                    </td>
+                                        
+                                    </td>
+                                </tr>
+                                {% endfor %}
+    
+                            </tbody>
+                        </table>
+                    </form>
+                    
+                </div>
+        </main>
+    </section>
+    
+
+    

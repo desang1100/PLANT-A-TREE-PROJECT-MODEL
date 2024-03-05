@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/landingstyles.css" />
+    <title>Web Design Mastery | Travel</title>
+  </head>
+  <body>
+    <nav class="section__container nav__container">
+      <div class="nav__logo">
+        <img src="/static/image/logo.png" alt="logo" />
+        <span>Plant A Tree</span>
+      </div>
+      <ul class="nav__links">
+        <li class="link"><a href="{{url_for('home')}}">Home</a></li>
+        <li class="link"><a href="{{url_for('login')}}">Login</a></li>
+        <li class="link"><a href="{{url_for('signup')}}">Signup</a></li>
+        
+      </ul>
+    </nav>
+    <header>
+      <div class="header__content">
+        <p>WE PLANT TREES FOR</p>
+        <h1>Philippines</h1>
+        <a href="{{url_for('signup')}}"><button class="btn" href="{{url_for('signup')}}">PLANT A TREE</button></a>
+      </div>
+      
+    </header>
+
+    
+     
+  </body>
+</html>

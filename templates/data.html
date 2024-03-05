@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Data</title>
+</head>
+<body>
+    <h1>Project Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Project ID</th>
+                <th>Area Size</th>
+                <th>Project Scope</th>
+                <th>Soil Condition</th>
+                <th>Weather Condition</th>
+                <th>Participants Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in project_data %}
+            <tr>
+                <td>{{ project.project_id }}</td>
+                <td>{{ project.area_size }}</td>
+                <td>{{ project.project_scope }}</td>
+                <td>{{ project.soil_condition }}</td>
+                <td>{{ project.weather_condition }}</td>
+                <td>{{ project.participants_count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

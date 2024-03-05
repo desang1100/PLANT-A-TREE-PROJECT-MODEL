@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Project</title>
+    <link rel="stylesheet" href="/static/css/signup.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+
+</head>
+<body>
+    
+
+     <div class="login-container">
+        <h1>Add Project</h1>
+        
+
+            <form action="{{ url_for('add_project_process') }}" method="POST">
+              
+                    <label for="project_name">Project Name:</label>
+                    <input type="text" id="project_name" name="project_name" required>
+             
+
+                
+                    <label for="project_desc">Project Description:</label>
+                    <textarea id="project_desc" name="project_desc" rows="5" required></textarea>
+                
+
+               
+                    <label for="start_date">Start Date:</label>
+                    <input type="date" id="start_date" name="start_date" required>
+                
+
+                
+                    <label for="end_date">End Date:</label>
+                    <input type="date" id="end_date" name="end_date" required>
+                
+
+                
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" required>
+                
+               
+                    <label for="area_size">Area Size (sqm):</label>
+                    <input type="text" id="area_size" name="area_size" required>
+                
+
+                
+                    <label for="project_scope">Project Scope:</label>
+                    <select id="project_scope" name="project_scope" required>
+                        <option value="Reforestation">Reforestation</option>
+                        <option value="Urban Planting">Urban Planting</option>
+                        <option value="Agroforestry">Agroforestry</option>
+                    </select>
+                
+
+                
+                    <label for="soil_condition">Soil Condition:</label>
+                    <select id="soil_condition" name="soil_condition" required>
+                        <option value="good">Good</option>
+                        <option value="fair">Fair</option>
+                        <option value="poor">Poor</option>
+                    </select>
+                
+                
+                    <label for="weather_condition">Weather Condition:</label>
+                    <select id="weather_condition" name="weather_condition" required>
+                        <option value="sunny">Sunny</option>
+                        <option value="rainy">Rainy</option>
+                        <option value="cloudy">Cloudy</option>
+                    </select>
+                
+
+                <button type="submit">Add Project</button>
+            </form>
+    </div>
+
+</body>
+</html>

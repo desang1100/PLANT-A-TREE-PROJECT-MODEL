@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Profile</title>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/static/js/script.js"></script>
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/flexbox.css">
+   
+</head>
+
+
+    <section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<a href="{{ url_for('user_profile') }}" class="nav-link">Home</a>
+            
+            <!-- LOGOUT BUTTON -->
+            <a class="status completed" href="{{ url_for('join_project') }}">View Projects</a>
+			<form action="#">
+				<div class="form-input">
+					
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+		
+            <!-- LOGOUT BUTTON -->
+            <!-- LOGOUT BUTTON -->
+            <a class="status completed" href="{{ url_for('logout') }}">Logout</a>
+
+			<a href="#" class="notification">
+				
+			</a>
+			<a href="#" class="profile">
+				<img src="/static/image/people.png">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+        
+        <main>
+            <div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        <h3>Project Informations</h3>
+                        
+                        
+                    </div>
+
+                     <div class="container">
+                        <div class="box-container">
+                                <div class="box">  
+                                    
+                                    <h3>{{ project_data[0] }}</h3>
+                                    <p >Description: {{ project_data[1]}}</p>
+                                    <p class="a">Start Date: {{ project_data[2]}}</p>
+                                    <p>Location: {{ project_data[3]}}</p>
+                                    <p>Area Size : {{ project_data[4]}} sqm</p>
+                                    <p>Status: {{ project_data[5]}}</p>
+                                    <p>Project Scope : {{ project_data[6]}}</p>
+                                    <p>Soil Condition : {{ project_data[7]}}</p>
+                                    <p>Weather Condition : {{ project_data[8]}}</p>
+                                    
+                                    <h5>Predicted Time Completion: </h5>
+                                    <h7> {{ project_data[9]}}</h7>
+                                </div>                    
+                        </div>
+                  
+                
+               
+            
+            </div>
+
+                    
+
+
+                    
+                </div>
+        </main>
+    </section>
+    

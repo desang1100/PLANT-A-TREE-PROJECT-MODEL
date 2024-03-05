@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Page Title{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+</head>
+<body>
+
+    <div class="container"><header>
+        <nav>
+            <ul class="nav-left">
+                <!-- Add left-aligned menu items here -->
+            </ul>
+            <ul class="nav-right">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    </div>
+   
+</body>
+</html>

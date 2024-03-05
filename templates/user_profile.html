@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/static/css/user_profile.css">
+</head>
+<body>
+
+    <div class="container"><header>
+        <nav>
+            <ul class="nav-left">
+                <!-- Add left-aligned menu items here -->
+            </ul>
+            <ul class="nav-right">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('join_project',) }}">Join</a></li>
+            </ul>
+        </nav>
+    </header>
+    </div>
+
+
+
+
+
+
+    <h1>User Profile</h1>
+    
+
+    <h2>User Information</h2>
+    <p>First Name: {{ user[1] }}</p>
+    <p>Last Name: {{ user[2] }}</p>
+    <p>Email: {{ user[5] }}</p>
+
+    <h2>Projects</h2>
+    <div class="project-container">
+        {% for project in projects %}
+        <div class="project-card">
+            <p><strong>ID:</strong> {{ project[0] }}</p>
+            <p><strong>Project Name:</strong> {{ project[1] }}</p>
+            <p><strong>Project Description:</strong> {{ project[2] }}</p>
+            <p><strong>Start Date:</strong> {{ project[3] }}</p>
+            <p><strong>End Date:</strong> {{ project[4] }}</p>
+            <p><strong>Location:</strong> {{ project[5] }}</p>
+            <p><strong>Area Size:</strong> {{ project[6] }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <form action="{{ url_for('logout') }}" method="POST">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

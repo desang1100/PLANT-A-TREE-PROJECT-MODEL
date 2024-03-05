@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Projects</title>
+</head>
+<body>
+    <h1>Admin Projects</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Project ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Predicted Completion</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in projects %}
+            <tr>
+                <td>{{ project.id }}</td>
+                <td>{{ project.name }}</td>
+                <td>{{ project.description }}</td>
+                <td>{{ project.time_completion}}</td>
+                <td>{{ project.status }}</td>
+                <td>
+                    <form method="POST" action="{{ url_for('update_project_status') }}">
+                        <input type="hidden" name="project_id" value="{{ project.id }}">
+                        <select name="status">
+                            <option value="ongoing" {% if project.status == 'ongoing' %} selected {% endif %}>Ongoing</option>
+                            <option value="finished" {% if project.status == 'finished' %} selected {% endif %}>Finished</option>
+                            <option value="cancelled" {% if project.status == 'cancelled' %} selected {% endif %}>Cancelled</option>
+                        </select>
+                        <button type="submit">Update Status</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

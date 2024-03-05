@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Profile</title>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/static/js/script.js"></script>
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="/static/css/style.css">
+   
+</head>
+
+
+    <section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			
+            <a class="status completed" href="{{ url_for('user_table') }}">Users</a>
+            <!-- LOGOUT BUTTON -->
+            <a class="status completed" href="{{ url_for('project_table') }}">Projects</a>
+			<form action="#">
+				<div class="form-input">
+					
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			
+            <!-- LOGOUT BUTTON -->
+            <!-- LOGOUT BUTTON -->
+            <a class="status completed" href="{{ url_for('logout') }}">Logout</a>
+
+			<a href="#" class="notification">
+				
+			</a>
+			<a href="#" class="profile">
+				<img src="/static/image/people.png">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+        
+        <main>
+            <div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        <h3>Projects</h3>
+                        <a class="status completed" href="{{ url_for('add_project_process') }}">Add Project</a>
+                        <i class='bx bx-search' ></i>
+                        <i class='bx bx-filter' ></i>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th> Project Name</th>
+                                
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Location</th>
+                                <th>Status</th>
+                                <th>Predicted Completion</th>
+                                <th>Update Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for project in projects %}
+                            <tr>
+                                
+                                <td>
+                                    <img src="/static/image/people.png">
+                                    <a href="{{ url_for('fetch_user_data', project_id=project[0]) }}">{{ project[1] }}</a>
+                                
+                                </td>
+                               
+                                <td>{{ project[3] }}</td>
+                                <td>{{ project[4] }}</td>
+                                <td>{{ project[5] }}</td>
+                               
+                                
+                                <td>{{ project[9] }}</td>
+                                <td>{{ project[13] }}</td>
+                                <td>
+                                    
+                                    <form method="POST" action="{{ url_for('update_project_status') }}">
+                                        <input type="hidden" name="project_id" value="{{ project[0] }}">
+                                        <select name="status">
+                                            
+                                            <option value="ongoing" {% if project[8] == 'ongoing' %} selected {% endif %}>Ongoing</option>
+                                            <option value="finished" {% if project[8] == 'finished' %} selected {% endif %}>Finished</option>
+                                            <option value="cancelled" {% if project[8] == 'cancelled' %} selected {% endif %}>Cancelled</option>
+                                        </select>
+                                        <button type="submit" class="status completed">Update</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <a class="status completed" href="{{ url_for('edit_project', project_id=project[0]) }}">Edit</a>
+                                    <a class="status completed" href="{{ url_for('delete_project', project_id=project[0]) }}">Delete</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+ 
+                        </tbody>
+                    </table>
+                    
+                </div>
+        </main>
+    </section>
+    
